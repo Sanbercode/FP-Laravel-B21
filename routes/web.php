@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', 'PageController@getLoginPage')->name('login')->middleware('guest');
+Route::post('/login', 'AuthController@postLogin')->middleware('guest');
+
+Route::get('/register', 'PageController@getRegisterPage')->name('register')->middleware('guest');
+Route::post('/register', 'AuthController@postRegister')->middleware('guest');
+
+Route::get('/home', function(){
+    return view('home');
+})->name('home')->middleware('auth');
+
+Route::get('/logout', 'AuthController@logout')->name('logout');
