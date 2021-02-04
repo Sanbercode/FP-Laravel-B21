@@ -16,7 +16,7 @@ class AuthController extends Controller
         if(auth()->attempt(['email' => $request->email, 'password' => $request->password])){
             return redirect()->route('home');
         } else {
-            return redirect()->route('login')->with('errorauth', 'Invalid Email/Password');
+            return redirect()->route('login')->with(['error' => 'Invalid Email/Password']);
         }
 
 

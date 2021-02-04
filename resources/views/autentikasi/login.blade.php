@@ -24,9 +24,13 @@
                             <h1 class="font-weight-bold">Revibook</h1>
                         </div>
                         <p class="login-card-description">Sign into your account</p>
+
                         <form role="form" action="{{route('login')}}" method="POST">
                             @csrf
                             <div class="form-group">
+                                @if (session('error'))
+                                    <div class="alert alert-danger">{{ session('error') }}</div>
+                                @endif
                                 <label for="email" class="sr-only">Email</label>
                                 <input type="email" name="email" id="email" class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}" placeholder="Email address">
                                 @error('email')
@@ -43,13 +47,7 @@
                                     {{$message}}
                                 </div>
                                 @enderror
-                            </div>
-                            <div class="form-group">
-                                @if(session('errorauth'))
-                                    <div class="invalid-feedback">
-                                        <p>{{session('errorauth')}}</p>
-                                    </div>
-                                @endif
+
                             </div>
                             <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
                         </form>
