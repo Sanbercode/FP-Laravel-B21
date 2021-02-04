@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
     public function postLogin(Request $request){
-        if(!auth()->attempt([
-            'email' => $request->email,
-            'password' => $request->password
-        ])){
-            return redirect()->back();
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        if(auth()->attempt(['email' => $request->email, 'password' => $request->password])){
+            return redirect()->route('home');
+        } else {
+            return redirect()->route('login')->with('errorauth', 'Invalid Email/Password');
         }
-        return redirect()->route('home');
+
 
     }
 

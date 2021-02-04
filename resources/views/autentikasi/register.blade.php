@@ -13,7 +13,7 @@
 <body>
 <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
     <div class="container">
-        <div class="card my-5 mx-2 login-card" style="width:100%; height:85%;">
+        <div class="card my-5 mx-2 mx-auto login-card" style="width:100%; height:85%;">
             <div class="row no-gutters">
                 <div class="col-md-5">
                     <img src="{{asset('/login_register/images/login.jpg')}}" alt="login" class="login-card-img">

@@ -13,7 +13,7 @@
 <body>
 <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
     <div class="container">
-        <div class="card my-5 mx-2 login-card" style="width:100%; height:85%;">
+        <div class="card my-5 mx-auto login-card" style="width:100%; height:85%;">
             <div class="row no-gutters">
                 <div class="col-md-5">
                     <img src="{{asset('/login_register/images/login.jpg')}}" alt="login" class="login-card-img">
@@ -28,11 +28,28 @@
                             @csrf
                             <div class="form-group">
                                 <label for="email" class="sr-only">Email</label>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                                <input type="email" name="email" id="email" class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}" placeholder="Email address">
+                                @error('email')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                </div>
+                                @enderror
                             </div>
                             <div class="form-group mb-4">
                                 <label for="password" class="sr-only">Password</label>
-                                <input type="password" name="password" id="password" class="form-control" placeholder="***********">
+                                <input type="password" name="password" id="password" class="form-control {{$errors->has('password') ? 'is-invalid' : ''}}" placeholder="***********">
+                                @error('password')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                @if(session('errorauth'))
+                                    <div class="invalid-feedback">
+                                        <p>{{session('errorauth')}}</p>
+                                    </div>
+                                @endif
                             </div>
                             <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
                         </form>
