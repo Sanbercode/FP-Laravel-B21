@@ -22,7 +22,18 @@
                                 <h4>{{Auth::user()->name ?? 'No Data'}}</h4>
                                 <p class="text-secondary mb-1">{{Auth::user()->profil->pekerjaan ?? 'No Data'}}</p>
                                 <p class="text-muted font-size-sm">{{Auth::user()->profil->alamat ?? 'No Data'}}</p>
-                                <a href="/profile/edit" class="btn btn-outline-primary">Edit Profile</a>
+                                <div class="row no-gutters justify-content-center">
+                                    <div class="col-auto mr-1">
+                                        <a href="/profile/edit" class="btn btn-outline-primary">Edit Profile</a>
+                                    </div>
+                                    <div class="col-auto ml-1">
+                                        <form action="{{route('deleteProfile')}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="submit" class="btn btn-danger" value="Delete">
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -100,5 +111,7 @@
     </div>
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+@include('sweetalert::alert')
+
 </body>
 </html>

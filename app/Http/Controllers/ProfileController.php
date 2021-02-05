@@ -25,7 +25,12 @@ class ProfileController extends Controller
                 'pekerjaan' => $request -> job,
                 'alamat' => $request -> address]
         );
-       return redirect('/profile');
+       return redirect('/profile')->withSuccessMessage('Your Profile Has Been Updated!');
     }
 
+    public function deleteProfile(){
+        $profile = Profile::where('user_id', Auth::id())->delete();
+        return redirect('/profile')->withDeleteMessage('Your Profile Has Been Deleted!');
+
+    }
 }

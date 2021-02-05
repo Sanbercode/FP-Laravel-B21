@@ -38,3 +38,4 @@ Route::get('/profile/edit', 'PageController@getStoreProfilePage')->name('editPro
 
 Route::post('/profile', 'ProfileController@storeProfile')->middleware('auth');
 
+Route::delete('/profile', 'ProfileController@deleteProfile')->middleware('auth')->name('deleteProfile');

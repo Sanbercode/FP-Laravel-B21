@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="wrapper bg-white mt-sm-5">
-    <h4 class="pb-4 border-bottom">Create Profile</h4>
+    <h4 class="pb-4 border-bottom">Edit Profile</h4>
     <form role="form" action="/profile" method="POST">
         @csrf
         <div class="py-2">
@@ -19,7 +19,7 @@
                 <div class="row py-1">
                     <div class="col">
                         <label for="name">Full Name</label>
-                        <input name="name" id="name" type="text" class="bg-light form-control {{$errors->has('name') ? 'is-invalid' : ''}}" placeholder="John Cartridge">
+                        <input name="name" id="name" type="text" class="bg-light form-control {{$errors->has('name') ? 'is-invalid' : ''}}" value="{{Auth::user()->profil->nama ?? ''}}">
                         @error('name')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -32,7 +32,7 @@
                 <div class="row py-1">
                     <div class="col">
                         <label for="umur">Age</label>
-                        <input name="umur" id="umur" type="text" class="bg-light form-control {{$errors->has('umur') ? 'is-invalid' : ''}}" placeholder="Put Your Age Here">
+                        <input name="umur" id="umur" type="text" class="bg-light form-control {{$errors->has('umur') ? 'is-invalid' : ''}}" value="{{Auth::user()->profil->umur ?? ''}}">
                         @error('umur')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -45,7 +45,7 @@
                 <div class="row py-1">
                     <div class="col">
                         <label for="address">Address</label>
-                        <input name="address" id="address" type="text" class="bg-light form-control {{$errors->has('address') ? 'is-invalid' : ''}}" placeholder="Put Your Adress Here">
+                        <input name="address" id="address" type="text" class="bg-light form-control {{$errors->has('address') ? 'is-invalid' : ''}}" value="{{Auth::user()->profil->alamat ?? ''}}">
                         @error('address')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -58,7 +58,7 @@
                 <div class="row pt-1 pb-4">
                     <div class="col">
                         <label for="job">Job</label>
-                        <input name="job" id="job" type="text" class="bg-light form-control {{$errors->has('job') ? 'is-invalid' : ''}}" placeholder="Current Job">
+                        <input name="job" id="job" type="text" class="bg-light form-control {{$errors->has('job') ? 'is-invalid' : ''}}" value="{{Auth::user()->profil->pekerjaan ?? ''}}">
                         @error('job')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -67,8 +67,8 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
-
+            <button type="submit" class="btn btn-success">Save Changes</button>
+            <a href="{{route('profile')}}" class="btn btn-outline-danger">Cancel</a>
         </div>
     </form>
 
