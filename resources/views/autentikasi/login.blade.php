@@ -52,7 +52,7 @@
                             <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
                         </form>
 {{--                        <a href="#" class="forgot-password-link">Forgot password?</a>--}}
-                        <p class="login-card-footer-text">Don't have an account? <a href="/register" class="text-reset">Register here</a></p>
+                        <p class="login-card-footer-text">Don't have an account? <a href="{{route('register')}}" class="text-reset">Register here</a></p>
                         <nav class="login-card-footer-nav">
                             <p>&copy;2021 Revibook All Rights Reserved</p>
                         </nav>

@@ -21,7 +21,7 @@ class CreateBukuTable extends Migration
             $table->string('penerbit');
             $table->string('cover');
             $table->longText('sinopsis');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

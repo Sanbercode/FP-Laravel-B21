@@ -19,7 +19,8 @@ class CreateProfilTable extends Migration
             $table->string('umur');
             $table->string('pekerjaan');
             $table->longText('alamat');
-            
+            $table->timestamps();
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 

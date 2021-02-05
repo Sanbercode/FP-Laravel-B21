@@ -9,7 +9,7 @@
 </head>
 <body>
     <p>Selamat Datang {{Auth::user()->name ?? ''}}</p>
-
+    <a href="{{route('profile')}}">Profile</a>
     <a href="{{route('logout')}}">Logout</a>
 </body>
 </html>

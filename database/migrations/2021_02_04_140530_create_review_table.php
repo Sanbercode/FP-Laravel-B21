@@ -22,7 +22,7 @@ class CreateReviewTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('buku_id');
             $table->foreign('buku_id')->references('id')->on('buku');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

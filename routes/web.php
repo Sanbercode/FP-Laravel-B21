@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// Autentikasi
 Route::get('/login', 'PageController@getLoginPage')->name('login')->middleware('guest');
 Route::post('/login', 'AuthController@postLogin')->middleware('guest');
 
@@ -26,3 +28,13 @@ Route::get('/home', function(){
 })->name('home')->middleware('auth');
 
 Route::get('/logout', 'AuthController@logout')->name('logout');
+
+
+
+// Profile Page
+Route::get('/profile', 'PageController@getProfilePage')->name('profile')->middleware('auth');
+
+Route::get('/profile/edit', 'PageController@getStoreProfilePage')->name('editProfile')->middleware('auth');
+
+Route::post('/profile', 'ProfileController@storeProfile')->middleware('auth');
+
