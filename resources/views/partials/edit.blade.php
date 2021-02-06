@@ -24,22 +24,23 @@
         <div class="wrapper wrapper--w900">
             <div class="card card-6">
                 <div class="card-heading">
-                    <h2 class="title">Input Buku</h2>
+                    <h2 class="title">Edit Buku {{$post->judul}}</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('storeBuku')}}" method="POST">
-                        @csrf
+                    <form action="/content/{{$post->id}}" method="POST">
+                    @csrf
+                    @method('PUT')
                         <div class="form-row">
                             <div class="name">Judul Buku</div>
                             <div class="value">
-                                <input class="input--style-6" type="text" name="judul" id="judul">
+                                <input class="input--style-6" type="text" name="judul" id="judul" value="{{old('judul', $post->judul)}}">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="name">Tahun Diterbitkan</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="tahun" id="tahun">
+                                    <input class="input--style-6" type="text" name="tahun" id="tahun" value="{{old('tahun', $post->tahun)}}">
                                 </div>
                             </div>
                         </div>
@@ -47,7 +48,7 @@
                             <div class="name">Penulis</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="penulis" id="penulis"></textarea>
+                                    <input class="input--style-6" type="text" name="penulis" id="penulis" value="{{old('penulis', $post->penulis)}}"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +56,7 @@
                             <div class="name">Penerbit</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="penerbit" id="penerbit"></textarea>
+                                    <input class="input--style-6" type="text" name="penerbit" id="penerbit" value="{{old('penerbit', $post->penerbit)}}"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +64,7 @@
                             <div class="name">Sinopsis</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <textarea class="textarea--style-6" type="sinopsis" name="sinopsis" id="sinopsis"></textarea>
+                                    <textarea class="textarea--style-6" type="sinopsis" name="sinopsis" id="sinopsis" value="{{old('sinopsis', $post->sinopsis)}}"></textarea>
                                 </div>
                             </div>
                         </div>
