@@ -41,4 +41,9 @@ class PostController extends Controller
 
         return view('partials.content', compact('posts'));
     }
+
+    public function show($id){
+        $post = DB::table('buku')->where('id', $id)->first();
+        return view('partials.show', compact('post'));
+    }
 }

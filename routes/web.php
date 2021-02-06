@@ -15,6 +15,13 @@
 //    return view('welcome');
 //});
 
+Route::get('/home/content/formbuku', 'PostController@create');
+Route::post('/home/content', 'PostController@store');
+Route::get('/home/content', 'PostController@index');
+Route::get('/content/{id}', 'PostController@show');
+
+// Route::get('/upload', 'UploadController@upload');
+// Route::post('/upload', 'UploadController@proses_upload');
 
 //CRUD Buku
 Route::get('/contents/formbuku', 'PostController@create')->name('formBuku')->middleware('auth');
