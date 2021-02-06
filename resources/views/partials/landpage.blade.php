@@ -1,5 +1,20 @@
 @extends('partials.master')
 
+@section('navbar')
+    <li class="active">
+        <a href="/">Home</a>
+    </li>
+    <li>
+        <a href="{{route('contents')}}">Content</a>
+    </li>
+    <li>
+        <a href="{{route('login')}}">Login</a>
+    </li>
+    <li>
+        <a href="{{route('register')}}">Register</a>
+    </li>
+@endsection
+
 @section('banner')
 <div class="banner-slider">
          <div class="container-fluid">
@@ -30,12 +45,12 @@
                      <h3>Revibook!</h3>
                      <p>Revibook (Review Book) merupakan website favorit para pecinta buku dimana para books lover dapat memberikan testimoni dan diskusi untuk buku yang pernah mereka baca.  </p>
                      <div class="button_section">
-                        <a href="/home/content">Let's Go!</a>
+                        <a href="{{route('contents')}}">Let's Go!</a>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-      </div>\
+      </div>
 </div>
 @endsection

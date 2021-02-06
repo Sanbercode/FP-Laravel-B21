@@ -27,8 +27,8 @@
                     <h2 class="title">Input Buku</h2>
                 </div>
                 <div class="card-body">
-                    <form action="/home/content" method="POST">
-                    @csrf
+                    <form action="{{route('storeBuku')}}" method="POST">
+                        @csrf
                         <div class="form-row">
                             <div class="name">Judul Buku</div>
                             <div class="value">
@@ -69,7 +69,7 @@
                         </div>
                         <div class="form-row">
                             <form action="" enctype="multipart/form-data">
-                            @csrf
+                                @csrf
                                 <div class="name">Upload Cover Buku</div>
                                 <div class="value">
                                     <div class="input-group js-input-file">
@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="label--desc">Upload Book Cover or any other relevant file. Max file size 50 MB</div>
                                 </div>
-                        </div>                                      
+                        </div>
                 </div>
                 <div class="card-footer">
                     <button class="btn btn--radius-2 btn--blue-2" type="submit">Submit</button>

@@ -1,5 +1,25 @@
 @extends('partials.master')
 
+
+@section('navbar')
+    <li>
+        <a href="/">Home</a>
+    </li>
+    <li class="active">
+        <a href="{{route('contents')}}">Content</a>
+    </li>
+    <div class="btn-group mx-3">
+        <button type="button" class="btn btn-danger btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hi, {{Auth::user()->name ?? 'No Data'}}
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+        </div>
+    </div>
+@endsection
+
 @section('content')
 
 <section class="featured-places" id="blog">
@@ -10,8 +30,8 @@
                         <span>Testimoni</span>
                         <h2>Judul buku untuk direview :</h2>
                     </div>
-                </div> 
-            </div> 
+                </div>
+            </div>
 
             <div class="row">
             @foreach($posts as $key => $post)
@@ -50,10 +70,10 @@
                 </div>
                 @endforeach>
             </div>
-            
+        </div>
 
         <div class="button_section d-flex justify-content-center mt-5">
-            <a href="/home/content/formbuku">Tambahkan Buku</a>
+            <a href="{{route('formBuku')}}">Tambahkan Buku</a>
         </div>
     </section>
 @endsection
