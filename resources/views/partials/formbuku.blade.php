@@ -68,21 +68,24 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <form action="" enctype="multipart/form-data">
-                            @csrf
-                                <div class="name">Upload Cover Buku</div>
+            
+                            <div class="form-group">
+						<b>File Cover</b><br/>
+						<input type="file" name="cover" id="cover">
+					</div>                              
+                                <!-- <div class="name">Upload Cover Buku</div>
                                 <div class="value">
                                     <div class="input-group js-input-file">
                                         <input class="input-file" type="file" name="cover" id="file">
-                                        <label class="label--file" for="file">Choose file</label>
+                                        <label class="label--file" type="file" for="file">Choose file</label>
                                         <span class="input-file__info">No file chosen</span>
                                     </div>
                                     <div class="label--desc">Upload Book Cover or any other relevant file. Max file size 50 MB</div>
-                                </div>
+                                </div> -->
                         </div>                                      
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Submit</button>
+                    <button class="btn btn--radius-2 btn--blue-2" type="submit" value="Upload">Submit</button>
                 </div>
                 </form>
             </div>

@@ -12,6 +12,7 @@ class PostController extends Controller
     }
 
     public function store(Request $request) {
+        
         $query = DB::table('buku')->insert([
             "judul"=> $request["judul"],
             "tahun"=> $request["tahun"],
@@ -20,6 +21,7 @@ class PostController extends Controller
             "sinopsis"=>$request["sinopsis"],
             "cover"=>$request["cover"]
         ]);
+
         return redirect('/home/content');
     }
 
@@ -27,5 +29,10 @@ class PostController extends Controller
         $posts = DB::table('buku')->get();
 
         return view('partials.content', compact('posts'));
+    }
+
+    public function show($id){
+        $post = DB::table('buku')->where('id', $id)->first();
+        return view('partials.show', compact('post'));
     }
 }

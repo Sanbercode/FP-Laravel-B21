@@ -15,11 +15,11 @@
 
             <div class="row">
             @foreach($posts as $key => $post)
-                <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="col-md-4 col-sm-6 col-xs-12 mt-5">
                     <div class="featured-item">
                         <div class="thumb">
-                            <img src="{{asset('/images/', $post->cover)}}" alt="">
-                            <!-- <div class="overlay-content">
+                            <img src="{{ url('/data_file/'.$post->cover) }}" alt="">
+                            <div class="overlay-content">
                                 <ul>
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
@@ -27,7 +27,7 @@
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
                                 </ul>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="down-content">
                             <h4>{{$post->judul}}</h4>
@@ -36,12 +36,22 @@
                             <div class="row">
                                 <div class="col-md-6 first-button">
                                     <div class="text-button">
-                                        <a href="#">Tambahkan Review</a>
+                                        <a href="#">Review</a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text-button">
-                                        <a href="#">Lihat Detail</a>
+                                        <a href="/content/{{$post->id}}">Detail</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-button">
+                                        <a href="/content/{{$post->id}}">Edit Post</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-button">
+                                        <a href="/content/{{$post->id}}">Delete Post</a>
                                     </div>
                                 </div>
                             </div>

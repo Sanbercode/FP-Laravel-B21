@@ -18,6 +18,10 @@ Route::get('/', function () {
 Route::get('/home/content/formbuku', 'PostController@create');
 Route::post('/home/content', 'PostController@store');
 Route::get('/home/content', 'PostController@index');
+Route::get('/content/{id}', 'PostController@show');
+
+// Route::get('/upload', 'UploadController@upload');
+// Route::post('/upload', 'UploadController@proses_upload');
 
 
 // Autentikasi
