@@ -4,10 +4,15 @@
 
 <section class="featured-places" id="blog">
         <div class="container">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{session('success')}}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <span>Testimoni</span>
+                        <span>Beranda</span>
                         <h2>Judul buku untuk direview :</h2>
                     </div>
                 </div> 
@@ -46,13 +51,15 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text-button">
-                                        <a href="/content/{{$post->id}}">Edit Post</a>
+                                        <a href="/content/{{$post->id}}/edit">Edit Post</a>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="text-button">
-                                        <a href="/content/{{$post->id}}">Delete Post</a>
-                                    </div>
+                                <div class="col-md-6 btn-danger">
+                                    <form action="/home/content/{{$post->id}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                        <input type="submit" value="DELETE" class="btn btn-danger btn-lg btn-block">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -62,6 +69,8 @@
             </div>
             
 
+        <div class="button_section d-flex justify-content-center mt-5">
+        <div class="button_section d-flex justify-content-center mt-5">
         <div class="button_section d-flex justify-content-center mt-5">
             <a href="/home/content/formbuku">Tambahkan Buku</a>
         </div>
