@@ -73,7 +73,7 @@
                                 <div class="name">Upload Cover Buku</div>
                                 <div class="value">
                                     <div class="input-group js-input-file">
-                                        <input class="input-file" type="file" name="img" id="file">
+                                        <input class="input-file" type="file" name="cover" id="file">
                                         <label class="label--file" for="file">Choose file</label>
                                         <span class="input-file__info">No file chosen</span>
                                     </div>

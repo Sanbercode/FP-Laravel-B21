@@ -18,8 +18,8 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="featured-item">
                         <div class="thumb">
-                            <img src="{{asset('/images/', $post->img)}}" alt="">
-                            <div class="overlay-content">
+                            <img src="{{asset('/images/', $post->cover)}}" alt="">
+                            <!-- <div class="overlay-content">
                                 <ul>
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
@@ -27,7 +27,7 @@
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="down-content">
                             <h4>{{$post->judul}}</h4>
@@ -53,7 +53,7 @@
             
 
         <div class="button_section d-flex justify-content-center mt-5">
-            <a href="/formbuku">Tambahkan Buku</a>
+            <a href="/home/content/formbuku">Tambahkan Buku</a>
         </div>
     </section>
 @endsection
