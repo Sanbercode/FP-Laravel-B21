@@ -28,10 +28,8 @@
       <link rel="stylesheet" href="{{asset('/content/css/owl-carousel.css')}}">
       <link rel="stylesheet" href="{{asset('/content/css/datepicker.css')}}">
       <link rel="stylesheet" href="{{asset('/content/css/templatemo-style.css')}}">
+       @stack('header-script')
 
-      
-
-      <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
    </head>
    <!-- body -->
@@ -42,55 +40,18 @@
       </div>
       <!-- end loader -->
       <!-- header -->
-      <header>
-         <!-- header inner -->
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-lg-3 logo_section">
-                  <div class="full">
-                     <div class="center-desk">
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-9">
-                  <div class="menu-area">
-                     <div class="limit-box">
-                        <nav class="main-menu">
-                           <ul class="menu-area-main">
-                              <li class="active">
-                                 <a href="/home">Home</a>
-                              </li>
-                              <li>
-                                 <a href="/about">About Us</a>
-                              </li>
-                              <li>
-                                 <a href="#">Login</a>
-                              </li>
-                              <li>
-                                 <a href="#">Register</a>
-                              </li>
-                              <li>
-                                 <a href="#"><img src="{{asset('/images/search_icon.png')}}" alt="#" /></a>
-                              </li>
-                           </ul>
-                        </nav>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- end header inner -->
-      </header>
+      @include('partials.navbar')
 
       <!-- revolution slider -->
       @yield('banner')
       <!-- end revolution slider -->
-      <!-- section --> 
+      <!-- section -->
       @yield('content')
       <!-- end section -->
       <!-- footer -->
       @include('partials.footer')
       <!-- end footer -->
+      <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
       <!-- Javascript files-->
       <script src="{{asset('js/jquery.min.js')}}"></script>
       <script src="{{asset('js/popper.min.js')}}"></script>
@@ -100,5 +61,7 @@
       <!-- Scrollbar Js Files -->
       <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
       <script src="{{asset('js/custom.js')}}"></script>
+
+      @stack('script')
    </body>
 </html>

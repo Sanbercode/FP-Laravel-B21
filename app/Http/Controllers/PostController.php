@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
+use App\Buku;
 
 class PostController extends Controller
 {
@@ -12,21 +14,30 @@ class PostController extends Controller
     }
 
     public function store(Request $request) {
-        
-        $query = DB::table('buku')->insert([
-            "judul"=> $request["judul"],
-            "tahun"=> $request["tahun"],
-            "penulis"=>$request["penulis"],
-            "penerbit"=>$request["penerbit"],
-            "sinopsis"=>$request["sinopsis"],
-            "cover"=>$request["cover"]
+        $this->validate($request, [
+           'judul' => 'required',
+           'tahun' => 'required',
+           'penulis' => 'required',
+           'penerbit' => 'required',
+           'sinopsis' => 'required',
+           'cover' => 'required'
         ]);
 
-        return redirect('/home/content');
+        $query = Buku::create([
+            "judul"=> $request["judul"],
+            "tahun"=> $request["tahun"],
+            "penulis"=> $request["penulis"],
+            "penerbit"=> $request["penerbit"],
+            "sinopsis"=> $request["sinopsis"],
+            "cover"=> $request["cover"],
+            "user_id"=> Auth::id()
+        ]);
+        return redirect('/contents');
     }
 
     public function index() {
-        $posts = DB::table('buku')->get();
+//        $posts = DB::table('buku')->get();
+        $posts = Buku::all();
 
         return view('partials.content', compact('posts'));
     }

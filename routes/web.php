@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::get('/home/content/formbuku', 'PostController@create');
 Route::post('/home/content', 'PostController@store');
@@ -26,19 +26,27 @@ Route::delete('/home/content/{id}', 'PostController@destroy');
 // Route::get('/upload', 'UploadController@upload');
 // Route::post('/upload', 'UploadController@proses_upload');
 
+//CRUD Buku
+Route::get('/contents/formbuku', 'PostController@create')->name('formBuku')->middleware('auth');
+Route::post('/contents', 'PostController@store')->name('storeBuku')->middleware('auth');
+Route::get('/contents', 'PostController@index')->name('contents')->middleware('auth');
+
+//Landing Page dan Home Page
+Route::get('/', 'PageController@getLandingPage')->name('landing')->middleware('guest');
+
+Route::get('/home', 'PageController@getHomePage')->name('home')->middleware('auth');
 
 // Autentikasi
 Route::get('/login', 'PageController@getLoginPage')->name('login')->middleware('guest');
+
 Route::post('/login', 'AuthController@postLogin')->middleware('guest');
 
 Route::get('/register', 'PageController@getRegisterPage')->name('register')->middleware('guest');
+
 Route::post('/register', 'AuthController@postRegister')->middleware('guest');
 
-Route::get('/home', function(){
-    return view('partials.landpage');
-})->name('home')->middleware('auth');
-
 Route::get('/logout', 'AuthController@logout')->name('logout');
+
 
 
 

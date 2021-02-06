@@ -31,4 +31,12 @@ class PageController extends Controller
         return view('store-profile');
     }
 
+    public function getLandingPage(){
+        return view('partials.landpage');
+    }
+
+    public function getHomePage(){
+        return view('partials.home');
+    }
+
 }

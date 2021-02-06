@@ -27,8 +27,8 @@
                     <h2 class="title">Input Buku</h2>
                 </div>
                 <div class="card-body">
-                    <form action="/home/content" method="POST">
-                    @csrf
+                    <form action="{{route('storeBuku')}}" method="POST">
+                        @csrf
                         <div class="form-row">
                             <div class="name">Judul Buku</div>
                             <div class="value">

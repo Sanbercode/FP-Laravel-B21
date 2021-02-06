@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Buku extends Model
 {
-    protected $table = "buku";
-    protected $fillable = ['cover'];
+    protected $table = 'buku';
+    protected $guarded = [];
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

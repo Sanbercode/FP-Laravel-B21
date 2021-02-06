@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<div class="wrapper bg-white mt-sm-5">
+<div class="wrapper bg-white my-5">
     <h4 class="pb-4 border-bottom">Edit Profile</h4>
     <form role="form" action="/profile" method="POST">
         @csrf
