@@ -27,7 +27,7 @@
                     <h2 class="title">Edit Buku {{$post->judul}}</h2>
                 </div>
                 <div class="card-body">
-                    <form action="/content/{{$post->id}}" method="POST">
+                    <form action="/content/{{$post->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                         <div class="form-row">
@@ -84,7 +84,7 @@
                             <div class="name">Genre</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="genre" id="genre"></textarea>
+                                    <input class="input--style-6" type="text" name="genre" id="genre">
                                     @error('genre')
                                     <div class="alert alert-danger">
                                         {{ $message }}
@@ -97,7 +97,7 @@
                             <div class="name">Sinopsis</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <textarea class="textarea--style-6" type="sinopsis" name="sinopsis" id="sinopsis" value="{{old('sinopsis', $post->sinopsis)}}"></textarea>
+                                    <textarea class="textarea--style-6" type="text" name="sinopsis" id="sinopsis" value="{{$post->sinopsis}}"></textarea>
                                     @error('sinopsis')
                                     <div class="alert alert-danger">
                                         {{ $message }}
@@ -107,20 +107,15 @@
                             </div>
                         </div>
                         <div class="form-row">
-
                             <div class="form-group">
-						<b>File Cover</b><br/>
-						<input type="file" name="cover" id="cover">
-					    </div>
-                                <!-- <div class="name">Upload Cover Buku</div>
-                                <div class="value">
-                                    <div class="input-group js-input-file">
-                                        <input class="input-file" type="file" name="cover" id="file">
-                                        <label class="label--file" type="file" for="file">Choose file</label>
-                                        <span class="input-file__info">No file chosen</span>
-                                    </div>
-                                    <div class="label--desc">Upload Book Cover or any other relevant file. Max file size 50 MB</div>
-                                </div> -->
+						        <b>File Cover</b><br/>
+						        <input type="file" name="cover" id="cover" value="{{$post->cover}}">
+                                @error('cover')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+					        </div>
                         </div>
 
                         <div class="card-footer">

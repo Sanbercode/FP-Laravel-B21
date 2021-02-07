@@ -45,7 +45,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12 mt-5">
                     <div class="featured-item">
                         <div class="thumb">
-                            <img src="{{ url('/data_file/'.$post->cover) }}" alt="">
+                            <img src="{{ url('/data_file/'.$post->cover) }}" style="width:375px;">
                             <div class="overlay-content">
                                 <ul>
                                     <li><i class="fa fa-star"></i></li>

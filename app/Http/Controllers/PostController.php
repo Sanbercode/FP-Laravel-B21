@@ -99,16 +99,6 @@ class PostController extends Controller
             'cover' => 'required'
         ]);
 
-//        $query = DB::table('buku')
-//                ->where('id', $id)
-//                ->update([
-//                    'judul' => $request['judul'],
-//                    'tahun' => $request['tahun'],
-//                    'penulis' => $request['penulis'],
-//                    'penerbit' => $request['penerbit'],
-//                    'sinopsis' => $request['sinopsis'],
-//                    'cover' => $request['cover'],
-//                ]);
 
         $arrayGenre = explode(',', $request->genre);
         $genre_id = [];
@@ -117,13 +107,18 @@ class PostController extends Controller
             $genre_id[] = $genre->id;
         }
 
+        $fileCover = $request->file('cover');
+        $nama_file = time()."_".$fileCover->getClientOriginalName();
+        $tujuan_upload = 'data_file';
+        $fileCover->move($tujuan_upload,$nama_file);
+
         $query = Buku::find($id);
         $query->judul = $request['judul'];
         $query->tahun = $request['tahun'];
         $query->penulis = $request['penulis'];
         $query->penerbit = $request['penerbit'];
         $query->sinopsis = $request['sinopsis'];
-        $query->cover = $request['cover'];
+        $query->cover = $nama_file;
         $query->update();
 
         $query->genre()->sync($genre_id);
