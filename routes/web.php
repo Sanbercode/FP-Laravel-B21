@@ -35,7 +35,8 @@ Route::put('/reviewAuthor/{id}', 'ReviewController@updateReview')->middleware('a
 Route::delete('/reviewAuthor/{id}', 'ReviewController@destroyReview')->middleware('auth');
 
 
-
+//DOM_PDF
+route::get('/cetak_pdf/{id}', 'PDFController@cetak_pdf');
 
 //Landing Page dan Home Page
 Route::get('/', 'PageController@getLandingPage')->name('landing')->middleware('guest');

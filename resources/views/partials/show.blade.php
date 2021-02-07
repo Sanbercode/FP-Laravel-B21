@@ -22,6 +22,7 @@
     <p>Sinopsis: <break> {{$post -> sinopsis}}</p>
     <div class="lead my-4">
         <a class="btn btn-primary btn-lg" href="/contents/{{$post->id}}/review" role="button">Tambahkan Review</a>
+        <a class="btn btn-success btn-lg" href="/cetak_pdf/{{$post->id}}" role="button">Download</a>
         <a href="{{route('contents')}}" class="btn btn-danger btn-lg" role="button">Kembali</a>
     </div>
     <hr class="my-4">
