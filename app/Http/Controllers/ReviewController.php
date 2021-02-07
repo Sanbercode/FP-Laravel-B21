@@ -6,12 +6,17 @@ use App\Buku;
 use Illuminate\Http\Request;
 use App\Review;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ReviewController extends Controller
 {
     public function reviewAuthor(){
+        if(session('edit_message')){
+            Alert::success('Success', session('edit_message'));
+        } else if (session('destroy_message')){
+            Alert::success('Success', session('edit_message'));
+        }
         $authorReview = Auth::user()->review;
-
         return view('partials.review_author', compact('authorReview'));
     }
     public function getReviewPage($id){
@@ -33,7 +38,7 @@ class ReviewController extends Controller
             'buku_id' => $buku->id
         ]);
 
-        return redirect('/content/'. $buku->id);
+        return redirect('/content/'. $buku->id)->withStoreMessage('Berhasil menambahkan review!');
     }
 
     public function getEditReviewPage($id){
@@ -53,11 +58,11 @@ class ReviewController extends Controller
         $review->rating = $request->rating;
         $review->update();
 
-        return redirect('/reviewAuthor');
+        return redirect('/reviewAuthor')->withEditMessage('Review berhasil disunting!');
     }
 
     public function destroyReview($id){
         $query = Review::find($id)->delete();
-        return redirect('/reviewAuthor');
+        return redirect('/reviewAuthor')->withDestroyMessage('Review berhasil dihapus!');
     }
 }

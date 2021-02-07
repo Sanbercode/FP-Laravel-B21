@@ -31,7 +31,7 @@
                     <div class="row py-1">
                         <div class="col">
                             <label for="rating">Isi Review</label>
-                            <input name="rating" id="rating" type="text" class="bg-light form-control {{$errors->has('rating') ? 'is-invalid' : ''}}" placeholder="Rating antara 1-5">
+                            <input name="rating" id="rating" type="text" class="bg-light form-control {{$errors->has('rating') ? 'is-invalid' : ''}}" placeholder="Rating antara 1-9">
                             @error('rating')
                             <div class="invalid-feedback">
                                 {{$message}}

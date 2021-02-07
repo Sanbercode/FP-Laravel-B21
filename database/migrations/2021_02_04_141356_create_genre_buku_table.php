@@ -18,9 +18,9 @@ class CreateGenreBukuTable extends Migration
             //$table->timestamps();
 
             $table->unsignedBigInteger('buku_id');
-            $table->foreign('buku_id')->references('id')->on('buku');
+            $table->foreign('buku_id')->references('id')->on('buku')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('genre_id');
-            $table->foreign('genre_id')->references('id')->on('genre');
+            $table->foreign('genre_id')->references('id')->on('genre')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

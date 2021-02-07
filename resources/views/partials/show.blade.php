@@ -29,8 +29,8 @@
     @forelse($review as $rev)
         <div class="card mb-4" style="width: 120rem;">
             <div class="card-body">
-                <h3 class="card-title">{{$rev->user->name}}</h3>
-                <h6 class="card-subtitle text-muted">Rating : {{$rev->rating}}/5 </h6>
+                <h3 class="card-title">Reviewer : {{$rev->user->name}}</h3>
+                <h6 class="card-subtitle text-muted">Rating : {{$rev->rating}}/9 </h6>
                 <p class="card-text">
                         {{$rev->isi}}
                 </p>
