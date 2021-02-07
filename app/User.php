@@ -44,4 +44,8 @@ class User extends Authenticatable
     public function buku(){
         return $this->hasMany('App\Buku');
     }
+
+    public function review(){
+        return $this->hasMany('App\Review');
+    }
 }

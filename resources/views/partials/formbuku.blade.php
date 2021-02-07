@@ -33,6 +33,11 @@
                             <div class="name">Judul Buku</div>
                             <div class="value">
                                 <input class="input--style-6" type="text" name="judul" id="judul">
+                                @error('judul')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-row">
@@ -40,6 +45,11 @@
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-6" type="text" name="tahun" id="tahun">
+                                    @error('tahun')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -47,7 +57,12 @@
                             <div class="name">Penulis</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="penulis" id="penulis"></textarea>
+                                    <input class="input--style-6" type="text" name="penulis" id="penulis">
+                                    @error('penulis')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -55,7 +70,12 @@
                             <div class="name">Penerbit</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="penerbit" id="penerbit"></textarea>
+                                    <input class="input--style-6" type="text" name="penerbit" id="penerbit">
+                                    @error('penerbit')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -63,16 +83,38 @@
                             <div class="name">Sinopsis</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <textarea class="textarea--style-6" type="sinopsis" name="sinopsis" id="sinopsis"></textarea>
+                                    <textarea class="textarea--style-6" type="text" name="sinopsis" id="sinopsis"></textarea>
+                                    @error('sinopsis')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
                         <div class="form-row">
-            
+                            <div class="name">Genre</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <textarea class="textarea--style-6" type="text" name="genre" id="genre" placeholder="Pisahkan dengan koma (,)"></textarea>
+                                    @error('genre')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="form-group">
-						<b>File Cover</b><br/>
-						<input type="file" name="cover" id="cover">
-					</div>                              
+                                <b>File Cover</b><br/>
+                                <input type="file" name="cover" id="cover">
+                                    @error('cover')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+					        </div>
                                 <!-- <div class="name">Upload Cover Buku</div>
                                 <div class="value">
                                     <div class="input-group js-input-file">
@@ -82,15 +124,17 @@
                                     </div>
                                     <div class="label--desc">Upload Book Cover or any other relevant file. Max file size 50 MB</div>
                                 </div> -->
-                        </div>                                      
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn--radius-2 btn--blue-2" type="submit" value="Upload">Submit</button>
-                </div>
+                        </div>
+
+
+                    <div class="card-footer">
+                        <button class="btn btn--radius-2 btn--blue-2" type="submit" value="Upload">Submit</button>
+                    </div>
                 </form>
             </div>
+            </div>
         </div>
-    </div>
+        </div>
 
     <!-- Jquery JS-->
     <script src="{{asset('/form-buku/vendor/jquery/jquery.min.js')}}"></script>

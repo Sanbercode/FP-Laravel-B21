@@ -12,4 +12,17 @@ class Buku extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function review(){
+        return $this->hasMany('App\Review');
+    }
+
+    public function genre(){
+        return $this->belongsToMany(
+            'App\Genre',
+            'genre_buku',
+            'buku_id',
+            'genre_id'
+        );
+    }
 }

@@ -34,6 +34,11 @@
                             <div class="name">Judul Buku</div>
                             <div class="value">
                                 <input class="input--style-6" type="text" name="judul" id="judul" value="{{old('judul', $post->judul)}}">
+                                @error('judul')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-row">
@@ -41,6 +46,11 @@
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-6" type="text" name="tahun" id="tahun" value="{{old('tahun', $post->tahun)}}">
+                                    @error('tahun')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -49,6 +59,11 @@
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-6" type="text" name="penulis" id="penulis" value="{{old('penulis', $post->penulis)}}"></textarea>
+                                    @error('penulis')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -57,6 +72,24 @@
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-6" type="text" name="penerbit" id="penerbit" value="{{old('penerbit', $post->penerbit)}}"></textarea>
+                                    @error('penerbit')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Genre</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="genre" id="genre"></textarea>
+                                    @error('genre')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -65,15 +98,20 @@
                             <div class="value">
                                 <div class="input-group">
                                     <textarea class="textarea--style-6" type="sinopsis" name="sinopsis" id="sinopsis" value="{{old('sinopsis', $post->sinopsis)}}"></textarea>
+                                    @error('sinopsis')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
                         <div class="form-row">
-            
+
                             <div class="form-group">
 						<b>File Cover</b><br/>
 						<input type="file" name="cover" id="cover">
-					</div>                              
+					    </div>
                                 <!-- <div class="name">Upload Cover Buku</div>
                                 <div class="value">
                                     <div class="input-group js-input-file">
@@ -83,16 +121,16 @@
                                     </div>
                                     <div class="label--desc">Upload Book Cover or any other relevant file. Max file size 50 MB</div>
                                 </div> -->
-                        </div>                                      
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn--radius-2 btn--blue-2" type="submit" value="Upload">Submit</button>
-                </div>
-                </form>
+                        </div>
+
+                        <div class="card-footer">
+                            <button class="btn btn--radius-2 btn--blue-2" type="submit" value="Upload">Submit</button>
+                        </div>
+                    </form>
             </div>
         </div>
     </div>
-
+</div>
     <!-- Jquery JS-->
     <script src="{{asset('/form-buku/vendor/jquery/jquery.min.js')}}"></script>
 

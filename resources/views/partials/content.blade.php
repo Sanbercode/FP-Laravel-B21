@@ -14,6 +14,8 @@
         </button>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
+            <a class="dropdown-item" href="{{route('contents_author')}}">My Post</a>
+            <a class="dropdown-item" href="{{route('reviewAuthor')}}">My Review List</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
         </div>
@@ -39,7 +41,7 @@
             </div>
 
             <div class="row">
-            @foreach($posts as $key => $post)
+            @forelse($posts as $key => $post)
                 <div class="col-md-4 col-sm-6 col-xs-12 mt-5">
                     <div class="featured-item">
                         <div class="thumb">
@@ -56,12 +58,11 @@
                         </div>
                         <div class="down-content">
                             <h4>{{$post->judul}}</h4>
-                            <span>Category One</span>
-                            <p>{{$post->sinopsis}}</p>
+                            <p>{{Str::limit($post->sinopsis, 100)}}</p>
                             <div class="row">
                                 <div class="col-md-6 first-button">
                                     <div class="text-button">
-                                        <a href="#">Review</a>
+                                        <a href="/contents/{{$post->id}}/review">Add Review</a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -69,30 +70,22 @@
                                         <a href="/content/{{$post->id}}">Detail</a>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="text-button">
-                                        <a href="/content/{{$post->id}}/edit">Edit Post</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 btn-danger">
-                                    <form action="/home/content/{{$post->id}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                        <input type="submit" value="DELETE" class="btn btn-danger btn-lg btn-block">
-                                    </form>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                @endforeach>
+                @empty
+                    <div class="my-4 mx-4">
+                        <h1><b>Belum Ada Postingan</b></h1>
+                    </div>
+                @endforelse
             </div>
         </div>
 
+{{--        <div class="button_section d-flex justify-content-center mt-5">--}}
+{{--        <div class="button_section d-flex justify-content-center mt-5">--}}
         <div class="button_section d-flex justify-content-center mt-5">
-        <div class="button_section d-flex justify-content-center mt-5">
-        <div class="button_section d-flex justify-content-center mt-5">
-            <a href="/home/content/formbuku">Tambahkan Buku</a>
+            <a href="{{route('formBuku')}}">Tambahkan Buku</a>
         </div>
     </section>
 @endsection

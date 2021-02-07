@@ -63,5 +63,6 @@
       <script src="{{asset('js/custom.js')}}"></script>
 
       @stack('script')
+      @include('sweetalert::alert')
    </body>
 </html>

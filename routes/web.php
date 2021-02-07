@@ -15,21 +15,29 @@
 //    return view('welcome');
 //});
 
-Route::get('/home/content/formbuku', 'PostController@create');
-Route::post('/home/content', 'PostController@store');
-Route::get('/home/content', 'PostController@index');
-Route::get('/content/{id}', 'PostController@show');
-Route::get('/content/{id}/edit', 'PostController@edit');
-Route::put('/content/{id}', 'PostController@update');
-Route::delete('/home/content/{id}', 'PostController@destroy');
-
-// Route::get('/upload', 'UploadController@upload');
-// Route::post('/upload', 'UploadController@proses_upload');
-
 //CRUD Buku
 Route::get('/contents/formbuku', 'PostController@create')->name('formBuku')->middleware('auth');
 Route::post('/contents', 'PostController@store')->name('storeBuku')->middleware('auth');
 Route::get('/contents', 'PostController@index')->name('contents')->middleware('auth');
+Route::get('/contents/author', 'PostController@index_author')->name('contents_author')->middleware('auth');
+Route::get('/content/{id}', 'PostController@show')->name('showBuku')->middleware('auth');
+Route::get('/content/{id}/edit', 'PostController@edit')->name('editBuku')->middleware('auth');
+Route::put('/content/{id}', 'PostController@update')->middleware('auth');
+Route::delete('/home/content/{id}', 'PostController@destroy')->middleware('auth');
+
+
+//CRUD Review
+Route::get('/contents/{id}/review', 'ReviewController@getReviewPage')->middleware('auth');
+Route::post('/content/{id}', 'ReviewController@storeReview')->middleware('auth');
+Route::get('/contents/{id}/edit-review', 'ReviewController@getEditReviewPage')->middleware('auth');
+Route::get('/reviewAuthor', 'ReviewController@reviewAuthor')->middleware('auth')->name('reviewAuthor');
+Route::put('/reviewAuthor/{id}', 'ReviewController@updateReview')->middleware('auth');
+Route::delete('/reviewAuthor/{id}', 'ReviewController@destroyReview')->middleware('auth');
+
+// Route::get('/upload', 'UploadController@upload');
+// Route::post('/upload', 'UploadController@proses_upload');
+
+
 
 //Landing Page dan Home Page
 Route::get('/', 'PageController@getLandingPage')->name('landing')->middleware('guest');

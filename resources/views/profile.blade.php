@@ -13,6 +13,8 @@
         </button>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
+            <a class="dropdown-item" href="{{route('contents_author')}}">My Post</a>
+            <a class="dropdown-item" href="{{route('reviewAuthor')}}">My Review List</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
         </div>
@@ -126,5 +128,5 @@
 
 @push('script')
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    @include('sweetalert::alert')
+
 @endpush
