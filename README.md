@@ -6,3 +6,5 @@ Nama Anggota :
 
 Tema Project :
 Website Review Buku
+
+Link Video : https://drive.google.com/drive/folders/1twXLxTfFZtOiRxzHRnrJPtfCjotUAgWm?usp=sharing

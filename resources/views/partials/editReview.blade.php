@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <div class="row py-1">
                         <div class="col">
-                            <label for="rating">Isi Review</label>
+                            <label for="rating">Isi Rating</label>
                             <input name="rating" id="rating" type="text" class="bg-light form-control {{$errors->has('rating') ? 'is-invalid' : ''}}" value="{{$review->rating}}">
                             @error('rating')
                             <div class="invalid-feedback">
