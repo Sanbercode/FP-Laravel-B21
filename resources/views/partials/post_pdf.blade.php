@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="container">
-    <table class='table'>
+    <table class='table' style="width: 100%;">
         <thead>
         <tr>
             <th>No</th>
