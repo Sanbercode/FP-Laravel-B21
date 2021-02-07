@@ -34,8 +34,6 @@ Route::get('/reviewAuthor', 'ReviewController@reviewAuthor')->middleware('auth')
 Route::put('/reviewAuthor/{id}', 'ReviewController@updateReview')->middleware('auth');
 Route::delete('/reviewAuthor/{id}', 'ReviewController@destroyReview')->middleware('auth');
 
-// Route::get('/upload', 'UploadController@upload');
-// Route::post('/upload', 'UploadController@proses_upload');
 
 
 

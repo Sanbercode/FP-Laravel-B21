@@ -27,7 +27,7 @@
                     <h2 class="title">Input Buku</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('storeBuku')}}" method="POST">
+                    <form action="{{route('storeBuku')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-row">
                             <div class="name">Judul Buku</div>
@@ -115,15 +115,6 @@
                                     </div>
                                     @enderror
 					        </div>
-                                <!-- <div class="name">Upload Cover Buku</div>
-                                <div class="value">
-                                    <div class="input-group js-input-file">
-                                        <input class="input-file" type="file" name="cover" id="file">
-                                        <label class="label--file" type="file" for="file">Choose file</label>
-                                        <span class="input-file__info">No file chosen</span>
-                                    </div>
-                                    <div class="label--desc">Upload Book Cover or any other relevant file. Max file size 50 MB</div>
-                                </div> -->
                         </div>
 
 

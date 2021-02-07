@@ -24,8 +24,9 @@ class PostController extends Controller
            'penerbit' => 'required',
            'sinopsis' => 'required',
            'genre' => 'required',
-           'cover' => 'required'
+           'cover' => 'required|file|image|mimes:jpeg,png,jpg|max:2048'
         ]);
+
 
         $arrayGenre = explode(',', $request->genre);
         $genre_id = [];
@@ -35,13 +36,18 @@ class PostController extends Controller
         }
         $user = Auth::user();
 
+        $fileCover = $request->file('cover');
+        $nama_file = time()."_".$fileCover->getClientOriginalName();
+        $tujuan_upload = 'data_file';
+        $fileCover->move($tujuan_upload,$nama_file);
+
         $query = $user->buku()->create([
             "judul"=> $request["judul"],
             "tahun"=> $request["tahun"],
             "penulis"=> $request["penulis"],
             "penerbit"=> $request["penerbit"],
             "sinopsis"=> $request["sinopsis"],
-            "cover"=> $request["cover"]
+            "cover"=> $nama_file
         ]);
         $query->genre()->sync($genre_id);
         return redirect('/contents')->withStoreMessage('Berhasil Menambahkan Buku!');
