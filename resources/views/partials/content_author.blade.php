@@ -66,16 +66,16 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="text-button">
-                                            <a href="/content/{{$post->id}}">Detail</a>
+                                            <a href="/contents/{{$post->id}}">Detail</a>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="text-button">
-                                            <a href="/content/{{$post->id}}/edit">Edit Post</a>
+                                            <a href="/contents/{{$post->id}}/edit">Edit Post</a>
                                         </div>
                                     </div>
                                     <div class="col-md-6 btn-danger">
-                                        <form action="/home/content/{{$post->id}}" method="post">
+                                        <form action="/contents/{{$post->id}}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <input type="submit" value="DELETE" class="btn btn-danger btn-lg btn-block">

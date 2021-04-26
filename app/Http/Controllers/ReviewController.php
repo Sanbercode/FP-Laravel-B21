@@ -38,7 +38,7 @@ class ReviewController extends Controller
             'buku_id' => $buku->id
         ]);
 
-        return redirect('/content/'. $buku->id)->withStoreMessage('Berhasil menambahkan review!');
+        return redirect('/contents/'. $buku->id)->withStoreMessage('Berhasil menambahkan review!');
     }
 
     public function getEditReviewPage($id){

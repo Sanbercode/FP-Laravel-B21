@@ -27,7 +27,7 @@
                     <h2 class="title">Edit Buku {{$post->judul}}</h2>
                 </div>
                 <div class="card-body">
-                    <form action="/content/{{$post->id}}" method="POST" enctype="multipart/form-data">
+                    <form action="/contents/{{$post->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                         <div class="form-row">

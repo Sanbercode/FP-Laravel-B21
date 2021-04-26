@@ -37,7 +37,7 @@ class PostController extends Controller
         $user = Auth::user();
 
         $fileCover = $request->file('cover');
-        $nama_file = time()."_".$fileCover->getClientOriginalName();
+        $nama_file = time()."_".$fileCover->getClientOriginalExtension();
         $tujuan_upload = 'data_file';
         $fileCover->move($tujuan_upload,$nama_file);
 
@@ -50,6 +50,7 @@ class PostController extends Controller
             "cover"=> $nama_file
         ]);
         $query->genre()->sync($genre_id);
+
         return redirect('/contents')->withStoreMessage('Berhasil Menambahkan Buku!');
     }
 

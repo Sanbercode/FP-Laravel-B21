@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text-button">
-                                        <a href="/content/{{$post->id}}">Detail</a>
+                                        <a href="/contents/{{$post->id}}">Detail</a>
                                     </div>
                                 </div>
                             </div>

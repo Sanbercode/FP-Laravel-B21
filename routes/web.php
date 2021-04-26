@@ -16,19 +16,21 @@
 //});
 
 //CRUD Buku
-Route::get('/contents/formbuku', 'PostController@create')->name('formBuku')->middleware('auth');
-Route::post('/contents', 'PostController@store')->name('storeBuku')->middleware('auth');
-Route::get('/contents', 'PostController@index')->name('contents')->middleware('auth');
-Route::get('/contents/author', 'PostController@index_author')->name('contents_author')->middleware('auth');
-Route::get('/content/{id}', 'PostController@show')->name('showBuku')->middleware('auth');
-Route::get('/content/{id}/edit', 'PostController@edit')->name('editBuku')->middleware('auth');
-Route::put('/content/{id}', 'PostController@update')->middleware('auth');
-Route::delete('/home/content/{id}', 'PostController@destroy')->middleware('auth');
+Route::group(['middleware' => 'auth', 'prefix' => 'contents'], function(){
+    Route::get('/formbuku', 'PostController@create')->name('formBuku');
+    Route::post('/', 'PostController@store')->name('storeBuku');
+    Route::get('/', 'PostController@index')->name('contents');
+    Route::get('/author', 'PostController@index_author')->name('contents_author');
+    Route::get('/{id}', 'PostController@show')->name('showBuku');
+    Route::get('/{id}/edit', 'PostController@edit')->name('editBuku');
+    Route::put('/{id}', 'PostController@update');
+    Route::delete('/{id}', 'PostController@destroy')->name('deleteBuku');
+});
 
 
 //CRUD Review
 Route::get('/contents/{id}/review', 'ReviewController@getReviewPage')->middleware('auth');
-Route::post('/content/{id}', 'ReviewController@storeReview')->middleware('auth');
+Route::post('/contents/{id}', 'ReviewController@storeReview')->middleware('auth');
 Route::get('/contents/{id}/edit-review', 'ReviewController@getEditReviewPage')->middleware('auth');
 Route::get('/reviewAuthor', 'ReviewController@reviewAuthor')->middleware('auth')->name('reviewAuthor');
 Route::put('/reviewAuthor/{id}', 'ReviewController@updateReview')->middleware('auth');
@@ -36,7 +38,7 @@ Route::delete('/reviewAuthor/{id}', 'ReviewController@destroyReview')->middlewar
 
 
 //DOM_PDF
-route::get('/cetak_pdf/{id}', 'PDFController@cetak_pdf');
+Route::get('/cetak_pdf/{id}', 'PDFController@cetak_pdf');
 
 //Landing Page dan Home Page
 Route::get('/', 'PageController@getLandingPage')->name('landing')->middleware('guest');
@@ -65,3 +67,8 @@ Route::get('/profile/edit', 'PageController@getStoreProfilePage')->name('editPro
 Route::post('/profile', 'ProfileController@storeProfile')->middleware('auth');
 
 Route::delete('/profile', 'ProfileController@deleteProfile')->middleware('auth')->name('deleteProfile');
+
+
+Route::get('/testing', function(){
+    dd(Auth::id());
+});

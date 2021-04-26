@@ -12,7 +12,7 @@
 <body>
 <div class="wrapper bg-white my-5">
     <h4 class="pb-4 border-bottom">Review Buku</h4>
-    <form role="form" action="/content/{{$buku->id}}" method="POST">
+    <form role="form" action="/contents/{{$buku->id}}" method="POST">
         @csrf
         <div class="py-2">
             <div class="form-group">
