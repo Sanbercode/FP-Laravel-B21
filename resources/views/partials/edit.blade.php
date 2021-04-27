@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 
     <!-- Main CSS-->
-    <link href="{{asset('/form-buku/css/main.css')}}" rel="stylesheet" media="all">
+    <link href="{{url('/form-buku/css/main.css')}}" rel="stylesheet" media="all">
 </head>
 
 <body>
@@ -127,11 +127,11 @@
     </div>
 </div>
     <!-- Jquery JS-->
-    <script src="{{asset('/form-buku/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url('/form-buku/vendor/jquery/jquery.min.js')}}"></script>
 
 
     <!-- Main JS-->
-    <script src="{{asset('/form-buku/js/global.js')}}"></script>
+    <script src="{{url('/form-buku/js/global.js')}}"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

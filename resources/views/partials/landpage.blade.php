@@ -24,10 +24,10 @@
                      <!-- The slideshow -->
                      <div class="carousel-inner">
                         <div class="carousel-item active">
-                           <img src="{{asset('images/book1.jpg')}}" alt="#" />
+                           <img src="{{url('images/book1.jpg')}}" alt="#" />
                         </div>
                         <div class="carousel-item">
-                           <img src="{{asset('images/book2.jpg')}}" alt="#" />
+                           <img src="{{url('images/book2.jpg')}}" alt="#" />
                         </div>
                      </div>
                      <!-- Left and right controls -->

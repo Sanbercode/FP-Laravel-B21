@@ -128,11 +128,11 @@
         </div>
 
     <!-- Jquery JS-->
-    <script src="{{asset('/form-buku/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url('/form-buku/vendor/jquery/jquery.min.js')}}"></script>
 
 
     <!-- Main JS-->
-    <script src="{{asset('/form-buku/js/global.js')}}"></script>
+    <script src="{{url('/form-buku/js/global.js')}}"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
